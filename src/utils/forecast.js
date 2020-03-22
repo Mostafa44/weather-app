@@ -8,6 +8,8 @@ const forecast= (longitude, latitude, callback)=>{
             callback('error in the search criteria!', undefined);
         }else{
             callback(undefined,{ summary:body.daily.summary, 
+                            highTemp:body.daily.data[0].temperatureMax,
+                            lowTemp:body.daily.data[0].temperatureMin,
                             temperature:body.currently.temperature, 
                             rainingChance:body.currently.precipProbability});
         }

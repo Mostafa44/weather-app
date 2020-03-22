@@ -3,7 +3,7 @@ const weatherForm = document.querySelector('form');
 const search= document.querySelector('input');
 const message1= document.querySelector('#message1');
 const message2= document.querySelector('#message2');
-
+message2.setAttribute('style', 'white-space: pre;');
 weatherForm.addEventListener('submit', (e)=>{
     //in order to prevent the default behavior of refreshing the page
     e.preventDefault();
@@ -21,7 +21,8 @@ weatherForm.addEventListener('submit', (e)=>{
             message1.textContent=data.error;
         }else{
             message1.textContent=data.location;
-            message2.textContent=data.forecast;
+            message2.textContent= ( data.forecast).replace("\n", "\r\n");
+           
         }
     });
 });

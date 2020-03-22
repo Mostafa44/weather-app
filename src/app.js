@@ -48,7 +48,7 @@ app.get('/weather', (req,res)=>{
             return res.send({error:forcastError})
            }else{
            
-            const forecastString= `Currently it is ${forecastData.temperature} degrees, and there is a ${forecastData.rainingChance} % chance of rain`;
+            const forecastString= `as for today:\n\t the high temperature is ${forecastData.highTemp} and the low temperature is ${forecastData.lowTemp}\n\tCurrently it is ${forecastData.temperature} degrees, and there is a ${forecastData.rainingChance} % chance of rain`;
             res.send({
                     location,
                     forecast:forecastString,
