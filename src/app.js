@@ -15,6 +15,8 @@ app.set('view engine', 'hbs');
 app.set('views', viewsTemplatesDirectory);
 hbs.registerPartials(partialsPath);
 
+const port = process.env.PORT || 3000 
+
 //The static files configuration
 app.use(express.static(publicPathDirectory));
 
@@ -83,6 +85,6 @@ app.get('*',(req, res)=>{
         error:'There is no such resource', 
         creator:'Mostafa'});
 })
-app.listen(3000, ()=>{
-    console.log('started listening');
+app.listen(port, ()=>{
+    console.log(`started listening on port ${port}`);
 }) 
